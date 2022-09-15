@@ -2,9 +2,9 @@
 
 Basic School Project
 
-Jani Patrik, Gere Csanád, Tamáskovits Gyula Ákos
+[Jani Patrik](https://github.com/OHOKs), [Gere Csanád](https://github.com/csanszy), [Tamáskovits Gyula Ákos](https://github.com/TGyAkos)
 
-- [ ] 1. A felsorolt adatok bekérése (emberek, járatok), megfelelő adattítusba
+- [X] 1. A felsorolt adatok bekérése (emberek, járatok), megfelelő adattítusba
 - [X] 2. Választható legyen, hogy embert vagy járatot akarunk felvenni a rendszerbe
 - [ ] 3. Adatok ellenőrzése, hogy megfelelő hosszúságúak, karakter illetve szám mennyiségben is.
 - [ ] 4. Ha nem jól adta meg az adatot akkor kérje újra, hiba üzenettel
