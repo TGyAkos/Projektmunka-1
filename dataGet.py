@@ -1,16 +1,4 @@
-def printOptions(optionDict):
-    for key, value in optionDict.items():
-        if key == 1:
-            print("\n{}. - {}".format(key, value))
-        else:
-            print("{}. - {}".format(key, value))
-
-def matchCaseOptionOne():
-    print("matchCaseOptionOne")
-def matchCaseOptionTwo():
-    print("matchCaseOptionTwo")
-def matchCaseOptionThree():
-    print("matchCaseOptionThree")
+from dataInputPeople import dataInputPeople
 
 options = {
     1: 'Ember',
@@ -18,9 +6,32 @@ options = {
     3: 'Tovabb',
     4: 'Kilepes',
 }
+dataInputPeople = dataInputPeople()
+lista = []
+lista1 = []
 
-x = True
-while x == True:
+def printOptions(optionDict):
+    for key, value in optionDict.items():
+        if key == 1:
+            print("\n{}. - {}".format(key, value))
+        else:
+            print("{}. - {}".format(key, value))
+
+
+def matchCaseOptionOne():
+    print("matchCaseOptionOne")
+    try:
+        dataInputPeople.getInputPeopleData()
+    except:
+        print('nem jo')
+        matchCaseOptionOne()
+    print(dataInputPeople)
+def matchCaseOptionTwo():
+    print("matchCaseOptionTwo")
+def matchCaseOptionThree():
+    print("matchCaseOptionThree")
+
+while True:
     printOptions(options)
     option = int(input('Enter your choice: '))
     if option == 1:
@@ -29,6 +40,7 @@ while x == True:
         matchCaseOptionTwo()
     elif option == 3:
         matchCaseOptionThree()
+        break
     elif option == 4:
         exit(0)
     else:
