@@ -1,5 +1,5 @@
 
-from db import DbMain #Refactor this it looks like shit
+from db import DbMain
 from dataGet import dataGet
 from uiDraw import uiDraw 
 from DbManagement import DbManagement
@@ -25,9 +25,9 @@ while True:
     elif option == 2:
         DbManagement.saveToDb(data)
     elif option == 3:
-        print(db.getAllUser())
+        print(db.getAllUser())#Refactor this it looks like shit
     elif option == 4:
-        print(db.getAllFlight())
+        print(db.getAllFlight())#Refactor this it looks like shit
     elif option == 5:
         break
     else:
