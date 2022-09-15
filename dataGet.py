@@ -1,3 +1,16 @@
+from dataInputPeople import dataInputPeople
+from dataInputFlights import dataInputFlights
+
+options = {
+    1: 'People',
+    2: 'Flight',
+    3: 'Continue',
+    4: 'Exit',
+}
+
+dataInputPeople = dataInputPeople()
+dataInputFlights = dataInputFlights()
+
 def printOptions(optionDict):
     for key, value in optionDict.items():
         if key == 1:
@@ -5,22 +18,13 @@ def printOptions(optionDict):
         else:
             print("{}. - {}".format(key, value))
 
+
 def matchCaseOptionOne():
-    print("matchCaseOptionOne")
+    dataInputPeople.getInputPeopleData()
 def matchCaseOptionTwo():
-    print("matchCaseOptionTwo")
-def matchCaseOptionThree():
-    print("matchCaseOptionThree")
+    dataInputFlights.getInputFlightsData()
 
-options = {
-    1: 'Ember',
-    2: 'Jarat',
-    3: 'Tovabb',
-    4: 'Kilepes',
-}
-
-x = True
-while x == True:
+while True:
     printOptions(options)
     option = int(input('Enter your choice: '))
     if option == 1:
@@ -28,8 +32,8 @@ while x == True:
     elif option == 2:
         matchCaseOptionTwo()
     elif option == 3:
-        matchCaseOptionThree()
+        break
     elif option == 4:
         exit(0)
     else:
-        print("Nem jo input")
+        print("Incorrect input!")
