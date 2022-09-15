@@ -1,12 +1,42 @@
-from datetime import datetime
-from db import DbMain
+
+from db import DbMain #Refactor this it looks like shit
+from dataGet import dataGet
+from uiDraw import uiDraw 
+from DbManagement import DbManagement
 
 db = DbMain()
+uiDraw = uiDraw()
+data = dataGet()
+DbManagement = DbManagement()
+
+options = {
+    1: "Add a record",
+    2: "Save a record",
+    3: "View user records",
+    4: "View flight records",
+    5: "Exit",
+}
+
+while True:
+    uiDraw.printOptions(options)
+    option = int(input('Enter your choice: ')) #Should only appear when it's needed, oh well
+    if option == 1:
+        data.dataInput()
+    elif option == 2:
+        DbManagement.saveToDb(data)
+    elif option == 3:
+        print(db.getAllUser())
+    elif option == 4:
+        print(db.getAllFlight())
+    elif option == 5:
+        break
+    else:
+        print("Incorrect input!")
 
 '''
-emberek adatai és típusai:
+emberek adatai és típusai:qq`
 
-fistName TEXT,
+firstName TEXT,
 surName TEXT,
 idNumber INT,
 birthDate DATE,

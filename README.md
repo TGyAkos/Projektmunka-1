@@ -9,5 +9,5 @@ Basic School Project
 - [X] 3. Adatok ellenőrzése, hogy megfelelő hosszúságúak, karakter illetve szám mennyiségben is.
 - [X] 4. Ha nem jól adta meg az adatot akkor kérje újra, hiba üzenettel
 - [X] 5. Először helyi változókba, tömbökbe tárolás
-- [ ] (6.) Majd a megadott file segítségével helyi (sqlite) adatbázisba tárolás
-- [ ] 7. Egyenlőre egy egyszerűbb dokumentáció, melyben leírják, hogy kik a csapattagok, ki mit csinál/csinált stb.
+- [X] (6.) Majd a megadott file segítségével helyi (sqlite) adatbázisba tárolás
+- [X] 7. Egyenlőre egy egyszerűbb dokumentáció, melyben leírják, hogy kik a csapattagok, ki mit csinál/csinált stb.
