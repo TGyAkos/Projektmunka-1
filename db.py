@@ -60,7 +60,7 @@ class DbMain:
         rows = self.cur.fetchall()
         return rows
 
-    def getUserByFirstName(self, firstName):
-        self.cur.execute("""SELECT * FROM user WHERE fistName = ?""", firstName)
+    def getUserByfistName(self, fistName):
+        self.cur.execute("""SELECT * FROM user WHERE fistName = ?""", fistName)
         rows = self.cur.fetchall()
         return rows
