@@ -2,12 +2,11 @@ import re
 from datetime import datetime
 from uiDraw import uiDraw
 
-uiDraw = uiDraw()
-
 class dataGet:
     def __init__(self):
         self.dataInputPeople = dataInputPeople()
         self.dataInputFlights = dataInputFlights()
+        self.uiDraw = uiDraw()
         self.options = {
             1: 'People',
             2: 'Flight',
@@ -18,7 +17,7 @@ class dataGet:
         #do it with async
         #uiDraw.printOptions(self.options,self.dataInputPeople.getInputPeopleData(), self.dataInputFlights.getInputFlightsData())            
         while True:
-            uiDraw.printOptions(self.options)
+            self.uiDraw.printOptions(self.options)
             option = int(input('Enter your choice: '))
             if option == 1:
                 self.dataInputPeople.getInputPeopleData()

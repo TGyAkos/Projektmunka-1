@@ -1,37 +1,45 @@
-
 from db import DbMain
 from dataGet import dataGet
 from uiDraw import uiDraw 
 from DbManagement import DbManagement
 
-db = DbMain()
-uiDraw = uiDraw()
-data = dataGet()
-DbManagement = DbManagement()
+class Main:
+    def __init__(self):
+        self.db = DbMain()
+        self.uiDraw = uiDraw()
+        self.data = dataGet()
+        self.DbManagement = DbManagement()
+        self.options = {
+            1: "Add a record",
+            2: "Save a record",
+            3: "View user records",
+            4: "View flight records",
+            5: "Exit",
+        }
 
-options = {
-    1: "Add a record",
-    2: "Save a record",
-    3: "View user records",
-    4: "View flight records",
-    5: "Exit",
-}
+    def main():
+        while True:
+            uiDraw.printOptions(self.options)
+            self.option = int(input('Enter your choice: ')) #Should only appear when it's needed, oh well
+            if self.option == 1:
+                self.data.dataInput()
+            elif self.option == 2:
+                if self.DbManagement.saveToDb(self.data) == 0:
+                    del self.data
+                    self.data = dataGet()
+            elif self.option == 3:
+                print(self.db.getAllUser())#Refactor this it looks like shit
+            elif self.option == 4:
+                print(self.db.getAllFlight())#Refactor this it looks like shit
+            elif self.option == 5:
+                break
+            else:
+                print("Incorrect input!")
 
-while True:
-    uiDraw.printOptions(options)
-    option = int(input('Enter your choice: ')) #Should only appear when it's needed, oh well
-    if option == 1:
-        data.dataInput()
-    elif option == 2:
-        DbManagement.saveToDb(data)
-    elif option == 3:
-        print(db.getAllUser())#Refactor this it looks like shit
-    elif option == 4:
-        print(db.getAllFlight())#Refactor this it looks like shit
-    elif option == 5:
-        break
-    else:
-        print("Incorrect input!")
+    if __name__ == "__main__":
+        main()
+
+
 
 '''
 emberek adatai és típusai:qq`
@@ -72,13 +80,13 @@ flight = (
     '1234'
 )
 
-db.insertUser(user)
-db.insertFlight(flight)
+self.db.insertUser(user)
+self.db.insertFlight(flight)
 
-for item in db.getAllUser():
+for item in self.db.getAllUser():
     print(item)
     print(item[2])
 
-for item in db.getAllFlight():
+for item in self.db.getAllFlight():
     print(item)
 '''

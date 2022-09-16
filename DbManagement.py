@@ -21,32 +21,28 @@ class DbManagement:
         allUserDataInput = allDataInput.dataInputPeople
         allFlightDataInput = allDataInput.dataInputFlights
 
-        a = bool(allUserDataInput.__dict__)
+        if bool(allUserDataInput.__dict__) or bool(allFlightDataInput.__dict__):
+            while True:
+                uiDraw.printOptions(options)
+                option = int(input('Enter your choice: '))
+                if option == 1:
+                    self.saveUser(allUserDataInput)
+                    return 0
+                elif option == 2:
+                    self.saveFlight(allFlightDataInput)
+                    return 0
+                elif option == 3:
+                    self.viewChanges(allUserDataInput, allFlightDataInput)
+                elif option == 4:
+                    print("Currently not avaible")
+                elif option == 5:
+                    break
+                else:
+                    print("Incorrect input!")
+                return
 
-        if not bool(allUserDataInput.__dict__) or not bool(allFlightDataInput.__dict__):
-            print("\nEnter a record first.")
-            return
+        print("\nEnter a record first.")
 
-        while True:
-            uiDraw.printOptions(options)
-            option = int(input('Enter your choice: '))
-            if option == 1:
-                self.saveUser(allUserDataInput)
-                break
-            elif option == 2:
-                self.saveFlight(allFlightDataInput)
-                break
-            elif option == 3:
-                self.viewChanges(allUserDataInput, allFlightDataInput)
-            elif option == 4:
-                print("Currently not avaible")
-            elif option == 5:
-                break
-            else:
-                print("Incorrect input!")
-
-           
-        
     def saveUser(self, allUserDataInput):
         db.insertUser((
             allUserDataInput.firstName, 
