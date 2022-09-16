@@ -87,9 +87,9 @@ class dataInputFlights:
             self.location2 = input("Incrorrect arrival place, type in again!\n")
 
         self.depTime = input("Type in the departure time!\n")
-        while not re.match("^\d{2}:\d{2}$", self.depTime):
+        while not re.match("^2[0-3]:[1-5]?[0-9]$", self.depTime):
             self.depTime = input("Incrorrect departure time, type in again\n")
 
         self.arrTime = input("Type in the arrival time!\n")
-        while not re.match("^\d{2}:\d{2}$", self.arrTime):
+        while not re.match("^2[0-3]:[1-5]?[0-9]$", self.arrTime):
             self.arrTime = input("Incorrect arrival time, type in again!")
