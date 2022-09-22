@@ -1,21 +1,19 @@
 from db import DbMain
 from uiDraw import uiDraw
 
-db = DbMain()
-uiDraw = uiDraw()
-
-options = {
-    1: "Save user data",
-    2: "Save flight data",
-    3: "View pending changes",
-    4: "Unstage changes",
-    5: "Back",
-}
-
-
 class DbManagement:
-    
-    db.create_table()
+    def __init__(self):
+        self.db = DbMain()
+        self.uiDraw = uiDraw()
+        self.options = {
+            1: "Save user data",
+            2: "Save flight data",
+            3: "View pending changes",
+            4: "Unstage changes",
+            5: "Back",
+        }
+
+        self.db.create_table()
 
     def saveToDb(self, allDataInput):
         allUserDataInput = allDataInput.dataInputPeople
@@ -23,9 +21,9 @@ class DbManagement:
 
         if bool(allUserDataInput.__dict__) or bool(allFlightDataInput.__dict__):
             while True:
-                uiDraw.printOptions(options)
-                option = int(input('Enter your choice: '))
-                if option == 1:
+                self.uiDraw.printOptions(self.options)
+                self.option = int(input('Enter your choice: '))
+                if self.option == 1:
                     self.saveUser(allUserDataInput)
                     return 0
                 elif option == 2:
@@ -44,7 +42,7 @@ class DbManagement:
         print("\nEnter a record first.")
 
     def saveUser(self, allUserDataInput):
-        db.insertUser((
+        self.db.insertUser((
             allUserDataInput.firstName, 
             allUserDataInput.surName ,
             allUserDataInput.idNumber ,
@@ -55,7 +53,7 @@ class DbManagement:
         print("Saved")
 
     def saveFlight(self, allFlightDataInput):
-        db.insertFlight((
+        self.db.insertFlight((
             allFlightDataInput.flightId ,
             allFlightDataInput.location1 ,
             allFlightDataInput.location2 ,
