@@ -11,9 +11,3 @@ Basic School Project
 - [X] 5. Először helyi változókba, tömbökbe tárolás
 - [X] (6.) Majd a megadott file segítségével helyi (sqlite) adatbázisba tárolás
 - [X] 7. Egyenlőre egy egyszerűbb dokumentáció, melyben leírják, hogy kik a csapattagok, ki mit csinál/csinált stb.
-- [X] Uj tabla 2 kulso kulcs //ember jarat
-- [X] Utazas datuma ora, perc, ules szam
-- [ ] Kilistazza az embert sorban, sorszam alapjan valasztani
-- [ ] Kilistazza a jaratot sorban, sorszam alapjan valaszthato
-- [ ] Datum csekkolas több a többhoz db kapcsolat //
-- [X] Kapcsolat tabla ules szam, 2 id(kulso kulcs) 

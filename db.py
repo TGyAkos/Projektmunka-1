@@ -24,6 +24,14 @@ class DbMain:
             depTime TEXT,
             arrTime TEXT
         )""")
+        self.cur.execute("""CREATE TABLE IF NOT EXISTS ticket(
+            userId INTEGER PRIMARY KEY,
+            flightId INTEGER PRIMARY KEY,
+            seatNumber INTEGER, -- 3 szamjegyu
+            timeOfDeparture TEXT, -- YYYY-MM-DD HH:MM:SS
+            FOREIGN KEY(userId) REFERENCES userData(id) ON UPDATE CASCADE,
+            FOREIGN KEY(flightId) REFERENCES flight(id) ON UPDATE CASCADE
+        )""")
 
     def insertUser(self, item):
         self.cur.execute("""
@@ -49,6 +57,17 @@ class DbMain:
             ) VALUES (?,?,?,?,?)
         """, item)
         self.con.commit()
+    
+    def insertTicket(self, item):
+        self.cur.execute("""
+            INSERT OR IGNORE INTO ticket(
+                userId,
+                flightId,
+                seatNumber,
+                timeOfDeparture
+            ) VALUES (?,?,?,?)
+        """, item)
+        self.con.commit()
 
     def getAllUser(self):
         self.cur.execute("""SELECT * FROM userData""")
@@ -57,6 +76,11 @@ class DbMain:
 
     def getAllFlight(self):
         self.cur.execute("""SELECT * FROM flight""")
+        rows = self.cur.fetchall()
+        return rows
+
+    def getAllTicket(self):
+        self.cur.execute("""SELECT * FROM ticket""")
         rows = self.cur.fetchall()
         return rows
 

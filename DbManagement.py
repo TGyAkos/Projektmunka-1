@@ -48,7 +48,7 @@ class DbManagement:
             allUserDataInput.idNumber ,
             allUserDataInput.birthDate ,
             allUserDataInput.postCode , 
-            allUserDataInput.address ,
+            allUserDataInput.address
         ))
         print("Saved")
 
