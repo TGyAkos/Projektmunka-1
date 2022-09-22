@@ -2,12 +2,11 @@ import re
 from datetime import datetime
 from uiDraw import uiDraw
 
-uiDraw = uiDraw()
-
 class dataGet:
     def __init__(self):
         self.dataInputPeople = dataInputPeople()
         self.dataInputFlights = dataInputFlights()
+        self.uiDraw = uiDraw()
         self.options = {
             1: 'People',
             2: 'Flight',
@@ -18,7 +17,7 @@ class dataGet:
         #do it with async
         #uiDraw.printOptions(self.options,self.dataInputPeople.getInputPeopleData(), self.dataInputFlights.getInputFlightsData())            
         while True:
-            uiDraw.printOptions(self.options)
+            self.uiDraw.printOptions(self.options)
             option = int(input('Enter your choice: '))
             if option == 1:
                 self.dataInputPeople.getInputPeopleData()
@@ -63,7 +62,7 @@ class dataInputPeople:
             self.postCode = input("Incorrect postcode, type in again!\n")
 
         self.address = input("Type in your address!\n") 
-        while not re.match("^\w{1,}$", self.address):
+        while not re.match("^\w{1,} ", self.address):
             self.address = input("Incorrect address, type in again!\n")
 
 class dataInputFlights:
