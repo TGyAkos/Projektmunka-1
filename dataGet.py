@@ -62,7 +62,7 @@ class dataInputPeople:
             self.postCode = input("Incorrect postcode, type in again!\n")
 
         self.address = input("Type in your address!\n") 
-        while not re.match("^\w{1,}$", self.address):
+        while not re.match("^\w{1,} ", self.address):
             self.address = input("Incorrect address, type in again!\n")
 
 class dataInputFlights:

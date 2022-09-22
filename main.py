@@ -17,9 +17,9 @@ class Main:
             5: "Exit",
         }
 
-    def main():
+    def main(self):
         while True:
-            uiDraw.printOptions(self.options)
+            self.uiDraw.printOptions(self.options)
             self.option = int(input('Enter your choice: ')) #Should only appear when it's needed, oh well
             if self.option == 1:
                 self.data.dataInput()
@@ -36,8 +36,8 @@ class Main:
             else:
                 print("Incorrect input!")
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    Main().main()
 
 
 
